@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f6f7fb;
+  --surface: #ffffff;
+  --surface-2: #eef0f6;
+  --surface-3: #e4e7f0;
+  --border: #dfe3ee;
+  --text: #0f1420;
+  --text-2: #5b6478;
+  --text-3: #8a92a5;
+  --accent: #4f6ef7;
+  --accent-2: #7b5cf0;
+  --up: #16a34a;
+  --down: #e11d48;
+  --up-bg: rgba(22, 163, 74, 0.12);
+  --down-bg: rgba(225, 29, 72, 0.12);
+  --chart-grid: #e6eaf2;
+  --shadow: 0 6px 24px -12px rgba(15, 20, 32, 0.18);
+}
+
+[data-theme="dark"] {
+  --background: #0b0e14;
+  --surface: #131722;
+  --surface-2: #1a2030;
+  --surface-3: #232a3d;
+  --border: #232a3d;
+  --text: #eef1f8;
+  --text-2: #9aa4bd;
+  --text-3: #67708a;
+  --accent: #5b7cfa;
+  --accent-2: #8a6cf7;
+  --up: #22c55e;
+  --down: #f43f5e;
+  --up-bg: rgba(34, 197, 94, 0.15);
+  --down-bg: rgba(244, 63, 94, 0.15);
+  --chart-grid: #20273a;
+  --shadow: 0 6px 30px -14px rgba(0, 0, 0, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.mono {
+  font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+  font-variant-numeric: tabular-nums;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.text-up { color: var(--up); }
+.text-down { color: var(--down); }
+.bg-up { background: var(--up-bg); }
+.bg-down { background: var(--down-bg); }
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up {
+  animation: fadeUp 0.35s ease both;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.35; }
+}
+.live-dot {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
