@@ -12,13 +12,14 @@
 //
 // Config via environment:
 //   AI_API_BASE   base URL; default http://localhost:8377/v1
-//   AI_API_KEY    key; default to the provided key below
+//   AI_API_KEY    key (required for LLM calls; when absent we fall back to
+//                 the built-in heuristic model so nothing is ever exposed)
 //   AI_PRIMARY_MODEL    default agnes-3.0-flash
 //   AI_FALLBACK_MODEL   default deepseek-v4.1
 import type { Asset, CandlePoint, Prediction } from "./types";
 
 const AI_API_BASE = process.env.AI_API_BASE || "http://127.0.0.1:8377/v1";
-const AI_API_KEY = process.env.AI_API_KEY || "sk-7d8cc16f8830647dc51747adda4574622fd7be408e105098";
+const AI_API_KEY = process.env.AI_API_KEY || "";
 const AI_PRIMARY_MODEL = process.env.AI_PRIMARY_MODEL || "agnes-3.0-flash";
 const AI_FALLBACK_MODEL = process.env.AI_FALLBACK_MODEL || "deepseek-v4.1";
 
